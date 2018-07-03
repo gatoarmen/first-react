@@ -9,7 +9,11 @@ import "./App.css";
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    friends
+    
+    friends,
+    currentScore: 0,
+    highScore: 0,
+    clicked: [],
   };
 
   removeFriend = id => {
@@ -18,6 +22,12 @@ class App extends Component {
     // Set this.state.friends equal to the new friends array
     this.setState({ friends });
   };
+
+    //randomize image cards
+    shuffleArray = arr => {
+      const newFriends = arr.sort(() => Math.random() - 0.5)
+      this.setState({friends : newFriends})
+    }
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
