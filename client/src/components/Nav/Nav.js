@@ -6,7 +6,7 @@ const Nav = () => (
   <header>
   <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <a className="navbar-brand" href="/">
-      Click Game
+      Card Game
     </a>
   </nav>
   </header>

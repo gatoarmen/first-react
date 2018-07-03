@@ -4,14 +4,14 @@ import "./FriendCard.css";
 const FriendCard = props => (
 
   
-  <div className="card row container-fluid">
+  <button className="card row container-fluid">
     <div className="img-container">
       <img alt={props.name} src={props.image} />
     </div>
     {/* <span onClick={() => props.removeFriend(props.id)} className="remove">
       𝘅
     </span> */}
-  </div>
+  </button>
 );
 
 export default FriendCard;
