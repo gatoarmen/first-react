@@ -29,6 +29,21 @@ class App extends Component {
       this.setState({friends : newFriends})
     }
 
+     //add id to clicked array
+  clicked = card => {
+    this.shuffleArray(friends)
+    if (this.state.clicked.includes(card.target.id)) {
+      // this.resetGame();
+    } else {
+      //increase score by 1
+      // this.increase();
+      //add id to clicked array
+      const newClicksArray = this.state.clicked.slice();
+      newClicksArray.push(card.target.id)
+      this.setState({ clicked: newClicksArray})
+    }
+  }
+
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
@@ -39,7 +54,7 @@ class App extends Component {
         {this.state.friends.map(friend => (
           <FriendCard
             removeFriend={this.removeFriend}
-           
+            clicked={this.clicked}
             image={friend.image}
            
           />
