@@ -16,12 +16,21 @@ class App extends Component {
     clicked: [],
   };
 
-  removeFriend = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
-  };
+  resetGame = () => {
+    this.setState({
+      friends,
+      currentScore: 0,
+      highScore: this.state.currentScore,
+      clicked: [],
+    })
+    this.shuffleArray(friends)
+  }
+  // removeFriend = id => {
+  //   // Filter this.state.friends for friends with an id not equal to the id being removed
+  //   const friends = this.state.friends.filter(friend => friend.id !== id);
+  //   // Set this.state.friends equal to the new friends array
+  //   this.setState({ friends });
+  // };
 
     //randomize image cards
     shuffleArray = arr => {
@@ -36,7 +45,7 @@ class App extends Component {
       // this.resetGame();
     } else {
       //increase score by 1
-      // this.increase();
+      this.increase();
       //add id to clicked array
       const newClicksArray = this.state.clicked.slice();
       newClicksArray.push(card.target.id)
@@ -44,16 +53,27 @@ class App extends Component {
     }
   }
 
+    //increase score
+    increase = () => {
+      const newScore = this.state.currentScore + 1;
+      this.setState({currentScore : newScore})
+    }
+
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
       <Wrapper>
         <Nav/> 
        
-         <Title/>
+         <Title
+         currentScore = {this.state.currentScore}
+         highScore = {this.state.highScore}
+         />
         {this.state.friends.map(friend => (
           <FriendCard
-            removeFriend={this.removeFriend}
+            // removeFriend={this.removeFriend}
+            key={friend.id}
+            id={friend.id}
             clicked={this.clicked}
             image={friend.image}
            
