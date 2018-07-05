@@ -42,7 +42,7 @@ class App extends Component {
   clicked = card => {
     this.shuffleArray(friends)
     if (this.state.clicked.includes(card.target.id)) {
-      // this.resetGame();
+      this.resetGame();
     } else {
       //increase score by 1
       this.increase();
