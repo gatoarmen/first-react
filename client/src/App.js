@@ -23,7 +23,7 @@ class App extends Component {
       highScore: this.state.currentScore,
       clicked: [],
     })
-    this.shuffleArray(friends)
+   
   }
   // removeFriend = id => {
   //   // Filter this.state.friends for friends with an id not equal to the id being removed
@@ -50,6 +50,7 @@ class App extends Component {
       const newClicksArray = this.state.clicked.slice();
       newClicksArray.push(card.target.id)
       this.setState({ clicked: newClicksArray})
+      //  this.shuffleArray(friends)
     }
   }
 
@@ -75,6 +76,7 @@ class App extends Component {
             key={friend.id}
             id={friend.id}
             clicked={this.clicked}
+            title={friend.name}
             image={friend.image}
            
           />

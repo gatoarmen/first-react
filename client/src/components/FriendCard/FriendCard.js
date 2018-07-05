@@ -6,7 +6,7 @@ const FriendCard = props => (
   
   <div className="card row container-fluid" onClick={props.clicked}>
     <div className="img-container">
-      <img alt={props.name} src={props.image} />
+      <img id={props.id} alt={props.name} src={props.image} />
     </div>
     {/* <span onClick={() => props.removeFriend(props.id)} className="remove">
       𝘅
